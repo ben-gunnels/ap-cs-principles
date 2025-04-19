@@ -49,8 +49,7 @@ def randomDrop():
         organism = anyCollision(position)
         if organism == None:
             return position
-
-
+   
 class Organism:
     def __init__(self, position):
         self.position = position

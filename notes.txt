@@ -1,0 +1,9 @@
+Fuzzy Logic
+
+Implemented in our game.
+
+When a creature is:
+    * Scared they run in the least bad direction
+    * Not scared, they move in the most good direction
+    * When any one direction is bad they get scared
+    * While no direction is bad they gradually recover from being scared.
