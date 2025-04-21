@@ -49,7 +49,7 @@ class Spot:
         if abs(self.bearing) > 90:
             self.direction.add(W)
 
-        if isinstance(thing,Grass):
+        if isinstance(thing, Grass):
             self.kind = 'food'
             self.isClose = closeTo(self.distance)
 
@@ -57,7 +57,7 @@ class Spot:
             self.kind = 'danger'
             self.isClose = closeTo(self.distance)
 
-        elif isinstance(thing,Blue):
+        elif isinstance(thing, Blue):
             self.kind = 'friend'
             self.isClose = closeTo(self.distance)
 
@@ -65,8 +65,8 @@ class Spot:
             print('Unknown thing:', thing)
 
 def getSpots(me):
-    spots = [ ]
-    for organism in getOrganisms( ):
+    spots = []
+    for organism in getOrganisms():
         if organism != me:
             s = Spot(me.position, organism)
             spots.append(s)
@@ -92,7 +92,6 @@ class FuzzyLogicBot(Blue):
         self.isGoodIn = [ ]
         self.isBadIn = [ ]
         for isClose in self.isCloseIn:
-
             isGood = isClose['food'] & \
                         ~isClose['friend'] & \
                         ~isClose['danger']
@@ -103,11 +102,10 @@ class FuzzyLogicBot(Blue):
 
     def handleScared(self):
         if self.isBadIn[N] |    \
-                self. isBadIn[S] |  \
+                self.isBadIn[S] |  \
                 self.isBadIn[E] |   \
                 self.isBadIn[W] > \
                 Fuzzy(0.5):
-
             self.scared = Fuzzy(1)
         else:
             self.scared &= Fuzzy(0.9)
@@ -115,13 +113,13 @@ class FuzzyLogicBot(Blue):
     def moveDirection(self):
         self.spots = getSpots(self)
         self.isCloseIn = getCloseIn(self)
-        self.calcLogic( )
-        self.handleScared( )
+        self.calcLogic()
+        self.handleScared()
 
         if self.scared > Fuzzy(0.3):
-            return self.chooseScaredDirection( )
+            return self.chooseScaredDirection()
         else:
-            return self.chooseUnscaredDirection( )
+            return self.chooseUnscaredDirection()
 
     def chooseScaredDirection(self):
         move = pygame.Vector2()
@@ -150,8 +148,6 @@ class FuzzyLogicBot(Blue):
         else:
              move.x = 1
         return move
-
-
 
 def closeTo(dist):
     return Fuzzy(1 / (max(1,dist)/20)**2)

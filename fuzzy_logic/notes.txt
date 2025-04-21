@@ -7,3 +7,14 @@ When a creature is:
     * Not scared, they move in the most good direction
     * When any one direction is bad they get scared
     * While no direction is bad they gradually recover from being scared.
+
+Code Demo:
+    * Show the Flatworld logic.
+    * Show the event loop.
+    * Show the different classes of organisms. 
+    * Show the different classes of creatures.
+    * Demo the ManualFlatworld game.
+    * Show the FuzzyFlatworld logic.
+    * Demo some Fuzzy logic using the Fuzzy class.
+    * Demo the FuzzyFlatworld game.
+    
