@@ -1,40 +1,16 @@
 import time
 
-MINIMUM_TEMPERATURE = 65
-MAXIMUM_TEMPERATURE = 77
-
 def heater(temperature):
-    # Heat the room up by 5% for every call
-    # Set the minimum increase to 2 degrees
-    temperature += max(abs(0.05 * temperature), 2)
-
-    return temperature
+    pass
 
 def air_conditioner(temperature):
-    # Cool the room down by 5% for every call
-    # Set the minimum decrease to 2 degrees
-    temperature -= max(abs(0.05 * temperature), 2)
-
-    return temperature
+    pass
 
 def temp_sensor(temperature):
-    if temperature < MINIMUM_TEMPERATURE:
-        return "too cold"
+    pass
 
-    elif temperature > MAXIMUM_TEMPERATURE:
-        return "too hot"
-    
-    else:
-        return "just right"
-    
 def thermostat(signal, temperature):
-    if signal == "too cold":
-        temperature = heater(temperature)
-
-    elif signal == "too hot":
-        temperature = air_conditioner(temperature)
-
-    return temperature
+    pass
 
 def main():
     temperature = int(input(f"Enter a temperature to start: "))
@@ -58,11 +34,11 @@ def main():
 
         print(f"The room temperature is {signal} {emoji}\n")
 
-        # no more work to do
+        # No more work to do
         if signal == "just right":
             break
 
-        # Adjust the temperature to try to make it right
+        # Adjust the temperature to try to make it right via the thermostat
         temperature = thermostat(signal, temperature)
 
         if signal == "too cold":
@@ -77,8 +53,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-    
-
-

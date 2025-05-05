@@ -188,7 +188,7 @@ class Red(Creature):
         nearestCreature = None
         for organism in organisms:
             if isinstance(organism, Blue):
-                r,angle = self.bearing(organism)
+                r, angle = self.bearing(organism)
                 if r < nearestDist:
                     nearestDist = r
                     nearestCreature = organism
